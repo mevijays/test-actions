@@ -14,8 +14,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%d')"
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag reg.mevijay.com/library/git-img-name:latest
+      run: docker build . --file Dockerfile --tag reg.mevijay.com/library/git-img-name:${{ steps.date.outputs.date }}
     - name: login to reg.mevijay
       uses: docker/login-action@v1
       with:
@@ -23,4 +26,4 @@ jobs:
         username: ${{ secrets.REGNAME }}
         password: ${{ secrets.REGPASS }}
     - name: push image
-      run: docker push reg.mevijay.com/library/git-img-name:latest
+      run: docker push reg.mevijay.com/library/git-img-name:${{ steps.date.outputs.date }}
