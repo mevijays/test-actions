@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag reg.mevijay.com/library/git-img-name:latest)
+      run: docker build . --file Dockerfile --tag reg.mevijay.com/library/git-img-name:latest
     - name: login to reg.mevijay
       uses: docker/login-action@v1
       with:
