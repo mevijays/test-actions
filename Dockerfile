@@ -1,3 +1,6 @@
-FROM nginx:alpine
-add index.html /usr/share/nginx/html/
-
+FROM node:alpine
+WORKDIR /usr/app/src
+COPY package*.json ./
+RUN npm install --production
+COPY src .
+CMD ["node", "index.js"]
