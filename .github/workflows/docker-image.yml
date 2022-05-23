@@ -13,10 +13,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: get current date
-      id: date
-      run: echo "::set-output name=date::$(date +'%s')"
-    - name: Build the Docker image
-      run: echo "${{ steps.date.outputs.date }}"
     - name: print hello
-      run: echo "Hello world!"
+      run: nproc;free -m; df -h
