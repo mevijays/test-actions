@@ -2,7 +2,9 @@ name: hello world
 
 on:
   workflow_dispatch:
-
+env:
+  REGISTRY_URL: reg.mevijay.dev
+  REGISTRY_PROJECT: vijay/docker
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -16,11 +18,11 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
-          registry: reg.mevijay.dev
+          registry: ${{ env.REGISTRY_URL }}
           username: ${{ secrets.REGNAME }}
           password: ${{ secrets.REGPASS }}
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: reg.mevijay.dev/vijay/docker/app:latest
+          tags: ${{ env.REGISTRY_URL }}/${{ env.REGISTRY_PROJECT }}/app:latest
