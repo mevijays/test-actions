@@ -25,4 +25,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ${{ env.REGISTRY_URL }}/${{ env.REGISTRY_PROJECT }}/app:latest
+          tags: ${{ env.REGISTRY_URL }}/${{ env.REGISTRY_PROJECT }}/app:${{ github.run_number }}
