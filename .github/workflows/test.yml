@@ -1,0 +1,28 @@
+name: testing
+on:
+  workflow_dispatch:
+    inputs:
+      TESTENV:
+        default: "false:
+        required: true
+        type: choice
+        options:
+         - "dev"
+         - "prod"
+env:
+  REGISTRY_URL: reg.mevijay.dev
+  ENVIRONMENT: ${{ github.event.inputs.TESTENV }}
+jobs:
+  docker-dev:
+    if: env.ENVIRONMENT == 'dev'
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        run: echo "hello DEVELOPESS!"
+  docker-prod:
+    if: env.ENVIRONMENT == 'prod'
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        run: echo "hello PRODUCTION!"
+  
