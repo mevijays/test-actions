@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       TESTENV:
-        default: "false:
+        default: "false"
         required: true
         type: choice
         options:
