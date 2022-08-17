@@ -14,13 +14,13 @@ env:
   ENVIRONMENT: ${{ github.event.inputs.TESTENV }}
 jobs:
   docker-dev:
-    if: ${{ github.event.inputs.TESTENV }} == 'dev' 
+    if: ENVIRONMENT == 'dev' 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         run: echo "hello DEVELOPESS!"
   docker-prod:
-    if: ${{ github.event.inputs.TESTENV }} == 'prod' 
+    if: ENVIRONMENT == 'prod' 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
