@@ -21,6 +21,7 @@ jobs:
         run: echo "hello DEVELOPESS!"
   docker-prod:
     if: ${{ github.event.inputs.TESTENV == 'prod' }}
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         run: echo "hello PRODUCTION!"
