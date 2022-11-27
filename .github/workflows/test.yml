@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout
         run: echo "hello DEVELOPESS!"
+      - name: lets wait
+        run: sleep 20
   docker-prod:
     if: ${{ github.event.inputs.TESTENV == 'prod' }}
     runs-on: self-hosted
