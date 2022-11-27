@@ -15,13 +15,13 @@ env:
 jobs:
   docker-dev:
     if: ${{ github.event.inputs.TESTENV == 'dev' }}
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout
         run: echo "hello DEVELOPESS!"
   docker-prod:
     if: ${{ github.event.inputs.TESTENV == 'prod' }}
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout
         run: echo "hello PRODUCTION!"
