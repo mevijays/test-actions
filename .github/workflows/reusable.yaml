@@ -6,6 +6,6 @@ on:
   workflow_dispatch:
 jobs:
   Call_reusable_workflow:
-      uses: mevijays/vijay-work/.github/workflows/build.yaml@v1
+      uses: mevijays/vijay-work/.github/workflows/build.yaml@main
       with:
         java_version: 8
