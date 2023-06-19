@@ -10,8 +10,6 @@ on:
           - '8'
           - '11'
 jobs:
-  call_workflow:
-    runs-on: ubuntu-latest
   Call_reusable_workflow:
       uses: mevijays/workflows/.github/workflows/build.yaml@main
       with:
