@@ -11,6 +11,6 @@ on:
           - '11'
 jobs:
   Call_reusable_workflow:
-      uses: mevijays/workflows/.github/workflows/build.yaml@main
+      uses: mevijays/workflows/.github/workflows/build.yaml@v1
       with:
         java_version: ${{ inputs.java_version }}
