@@ -13,4 +13,4 @@ jobs:
   Call_reusable_workflow:
       uses: mevijays/workflows/.github/workflows/build.yaml@main
       with:
-        java_version: ${{ github.event.inputs.java_version }}
+        java_version: ${{ inputs.java_version }}
