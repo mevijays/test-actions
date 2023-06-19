@@ -1,16 +1,8 @@
 name: Call workflow
 on:
   workflow_dispatch:
-    inputs:
-      java_version:
-        description: 'Select Java Version'
-        required: true
-        default: '8'
-        options:
-          - '8'
-          - '11'
 jobs:
   Call_reusable_workflow:
       uses: mevijays/vijay-work/.github/workflows/build.yaml@v1
       with:
-        java_version: ${{ inputs.java_version }}
+        java_version: 8
