@@ -1,13 +1,19 @@
-name: "test reusable"
-on: workflow_dispatch
+name: Call workflow
+on:
+  workflow_dispatch:
+    inputs:
+      java_version:
+        description: 'Select Java Version'
+        required: true
+        default: '8'
+        options:
+          - '8'
+          - '11'
 jobs:
-  mavenbuild:
-    name: maven build
+  call_workflow:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout code
-        uses: actions/checkout@v2
-  setup_java:
-     uses: mevijays/workflows/.github/workflows/build.yaml@main
-     with:
-       JAVA_VER: '11'
+      - name: Call reusable workflow
+        uses: ./workflow_dispatch
+        with:
+          java_version: ${{ github.event.inputs.java_version }}
