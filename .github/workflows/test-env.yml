@@ -7,4 +7,4 @@ jobs:
     steps:
       - name: test1
         run: |
-          echo "test this ${{ github.GITHUB_SHA }}"
+          echo "test this ${{ GITHUB_SHA }}"
