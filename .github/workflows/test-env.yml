@@ -7,4 +7,5 @@ jobs:
     steps:
       - name: test1
         run: |
-          echo "test this ${{ github.sha }} and this"
+          export GIT_SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-6)
+          echo "test this ${{ github.sha }} and this is ${ env.GIT_SHORT_SHA }"
