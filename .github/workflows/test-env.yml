@@ -10,9 +10,11 @@ jobs:
       - name: test1
         id: image_tag_version
         run: |
-          echo "::set-output name=ver::DEV$(echo ${{ github.sha }} | cut -c1-6).${{ github.run_attempt }}.${{ github.run_number }}"
-          echo "IMAGE_TAG_VERSION: DEV$(echo ${{ github.sha }} | cut -c1-6).${{ github.run_attempt }}.${{ github.run_number }}"
+          #echo "::set-output name=ver::DEV$(echo ${{ github.sha }} | cut -c1-6).${{ github.run_attempt }}.${{ github.run_number }}"
+          #echo "DEV$(echo ${{ github.sha }} | cut -c1-6).${{ github.run_attempt }}.${{ github.run_number }}" >>
+          #echo "IMAGE_TAG_VERSION: DEV$(echo ${{ github.sha }} | cut -c1-6).${{ github.run_attempt }}.${{ github.run_number }}"
+          echo "ver=$(${{ github.sha }} | cut -c1-6)" >> $GITHUB_OUTPUT
       - name: take from step out
         run: |
-          echo "========================================="
+          echo "======================"
           echo "This is  ${{steps.image_tag_version.outputs.ver}}"
