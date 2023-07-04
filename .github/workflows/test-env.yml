@@ -2,8 +2,8 @@ name: test env
 on:
   workflow_dispatch:
 jobs:
-  test_job
-    runs-on: mylabvm
+  testjob:
+    runs-on: mylab-vm
     steps:
       - name: test1
         run: |
