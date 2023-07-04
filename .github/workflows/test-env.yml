@@ -7,7 +7,9 @@ jobs:
     steps:
       - name: test1
         run: |
-          export GIT_SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-6)  
-          echo $GIT_SHORT_SHA >> "$GITHUB_ENV"
-          echo "test this ${{ github.sha }} and this is ${{ github.GIT_SHORT_SHA }}"
-          env
+          echo "::set-output name=ver::DEV$(echo ${{ github.sha }} | cut -c1-6).${{ github.run_attempt }}.${{ github.run_number }}"
+          echo "IMAGE_TAG_VERSION:" DEV$(echo ${{ github.sha }} | cut -c1-6).${{ github.run_attempt }}.${{ github.run_number }}"
+      - name: take from step out
+        run: |
+          echo "========================================="
+          echo "This is  ${{steps.image_tag_version.outputs.img_version}}"
