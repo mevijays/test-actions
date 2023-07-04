@@ -1,0 +1,10 @@
+name: test env
+on:
+  workflow_dispatch:
+jobs:
+  test_job
+    runs-on: mylabvm
+    steps:
+      - name: test1
+        run: |
+          echo "test this ${{ github.GITHUB_SHA }}
