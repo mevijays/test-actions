@@ -1,6 +1,8 @@
 name: test env
 on:
   workflow_dispatch:
+  push:
+    branches: main
 jobs:
   testjob:
     runs-on: mylab-vm
