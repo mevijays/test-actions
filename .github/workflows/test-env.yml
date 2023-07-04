@@ -8,7 +8,7 @@ jobs:
       - name: test1
         run: |
           echo "::set-output name=ver::DEV$(echo ${{ github.sha }} | cut -c1-6).${{ github.run_attempt }}.${{ github.run_number }}"
-          echo "IMAGE_TAG_VERSION:" DEV$(echo ${{ github.sha }} | cut -c1-6).${{ github.run_attempt }}.${{ github.run_number }}"
+          echo "IMAGE_TAG_VERSION: DEV$(echo ${{ github.sha }} | cut -c1-6).${{ github.run_attempt }}.${{ github.run_number }}"
       - name: take from step out
         run: |
           echo "========================================="
