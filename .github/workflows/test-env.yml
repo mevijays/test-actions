@@ -10,8 +10,8 @@ jobs:
       - name: test1
         id: image_tag_version
         run: |
-          echo "ver=$(echo ${{ github.sha }} | cut -c1-6)" >> $GITHUB_OUTPUT
+          echo "ver=$(echo ${{ github.sha }} | cut -c1-6).${{ github.run_attempt }}.${{ github.run_number }}" >> $GITHUB_OUTPUT
       - name: take from step out
         run: |
           echo "======================"
-          echo "This is  ${{steps.image_tag_version.outputs.ver}}.${{ github.run_attempt }}.${{ github.run_number }}"
+          echo "This is  ${{steps.image_tag_version.outputs.ver}}"
