@@ -6,6 +6,6 @@ jobs:
     steps:
     - name: Set Output Variable
       id: my
-      run: echo "myoutput=${echo 'Hello world'}" >> "$GITHUB_OUTPUT"
+      run: echo "myoutput=helloAll" >> "$GITHUB_OUTPUT"
     outputs:
       output1: ${{ steps.my.outputs.myoutput }}
