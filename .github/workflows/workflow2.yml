@@ -1,0 +1,14 @@
+name: Workflow 2
+on:
+  workflow_run:
+    workflows: [workflow_1]
+    types: [completed]
+jobs:
+  workflow2_job:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+    - name: Get Output Variable
+      run: |
+        echo "${{ needs.workflow_1.outputs.output1 }}"
+

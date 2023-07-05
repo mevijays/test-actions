@@ -1,0 +1,11 @@
+name: workflow_1
+on: [push]
+jobs:
+  workflow1_job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set Output Variable
+      id: my
+      run: echo "myoutput=${echo 'Hello world'}" >> "$GITHUB_OUTPUT"
+    outputs:
+      output1: ${{ steps.my.outputs.myoutput }}
