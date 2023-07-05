@@ -10,5 +10,4 @@ jobs:
     steps:
     - name: Get Output Variable
       run: |
-        echo "${{ steps.workflow_1.workflow1_job.outputs.output1 }}"
-
+       echo "${{ needs.workflow1_job.outputs.output1 }}"
