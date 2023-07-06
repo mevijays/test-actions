@@ -2,15 +2,21 @@ name: Deployment
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+    inputs:
+      LZ:
+         description: 'LZ Environment'
+         required: true
+         type: choice
+         default: "dev"
+         options:
+         - "dev"
+         - "production"
 
+      
 jobs:
   deployment:
     runs-on: ubuntu-latest
-    environment: production
+    environment: ${{ github.event.inputs.LZ }}
     steps:
       - name: deploy
-        run: echo "hello all"
-        
+        run: echo "hello all"      
