@@ -11,5 +11,5 @@ jobs:
     uses: mevijays/test-actions/.github/workflows/workflow2.yml@main
     needs: ijob
     with:
-       msg1: ${{ needs.ijob.outputs.output1 }}
+       msg1: ${{ needs.ijob.outputs.msgout }}
        msg2: 'My system'
