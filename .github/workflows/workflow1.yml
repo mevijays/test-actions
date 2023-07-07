@@ -2,7 +2,8 @@ name: 'jar build'
 on:
   workflow_call:
     outputs:
-      output1: ${{ jobs.job1.outputs.output1 }}
+      output1: 
+        value: ${{ jobs.job1.outputs.output1 }}
 jobs:
   job1:
     runs-on: myvm-lab
