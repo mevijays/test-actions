@@ -1,3 +1,4 @@
+name: metrix1
 on:
   workflow_dispatch:
 jobs:
