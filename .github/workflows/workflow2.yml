@@ -14,4 +14,4 @@ jobs:
     steps:
       - name: step1
         id: step1
-        run: echo ${{ github.event.inputs.msg1 }}--${{ github.event.inputs.msg2 }}
+        run: echo ${{ inputs.msg1 }}--${{ inputs.msg2 }}
