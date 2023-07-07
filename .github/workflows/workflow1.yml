@@ -2,7 +2,7 @@ name: 'jar build'
 on:
   workflow_call:
     outputs:
-      output1: 
+      msgout: 
         value: ${{ jobs.job1.outputs.output1 }}
 jobs:
   job1:
