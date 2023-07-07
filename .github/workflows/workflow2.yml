@@ -1,13 +1,17 @@
-name: Workflow 2
+name: 'docker build'
 on:
-  workflow_run:
-    workflows: [workflow_1]
-    types: [completed]
+  workflow_call:
+    inputs:
+      msg1: 
+        type: string
+        default: "hello"
+      msg2:
+        type: string
+        default: "vijay"
 jobs:
-  workflow2_job:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+  job2:
+    runs-on: myvm-lab
     steps:
-    - name: Get Output Variable
-      run: |
-       echo "${{ needs.workflow1_job.outputs.output1 }}"
+      - name: step1
+        id: step1
+        run: echo ${{ github.event.inputs.msg1 }}--${{ github.event.inputs.msg2 }}
