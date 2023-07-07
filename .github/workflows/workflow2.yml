@@ -10,7 +10,7 @@ on:
         default: "vijay"
 jobs:
   job2:
-    runs-on: myvm-lab
+    runs-on: mylab-vm
     steps:
       - name: step1
         id: step1
