@@ -4,10 +4,16 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        SA: 
+          - 'dev/lz'
+          - 'uat/lz'
+          - 'prd/ls'
+        ENV:
+          - 'dev-de'
+          - 'dev-in'
+          - 'uat-in'
+          - 'prd-de'
     runs-on: mylab-vm
     steps:
       - name: first step
-        run: echo "Hello world"
-      - name: second step
-        run: echo " hello for-${{ matrix.os }}"
+        run: echo ${{ metrix.ENV }}
