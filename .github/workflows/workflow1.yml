@@ -1,11 +1,18 @@
-name: workflow_1
-on: [push, workflow_dispatch]
-jobs:
-  workflow1_job:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Set Output Variable
-      id: my
-      run: echo "myoutput=helloAll" >> "$GITHUB_OUTPUT"
+name: 'jar build'
+on:
+  workflow_call:
+    inputs:
+      msg:
+        type: string
+        default: "hello"
     outputs:
-      output1: ${{ steps.my.outputs.myoutput }}
+      output1: ${{ jobs.job1.outputs.output1 }}
+jobs:
+  job1:
+    runs-on: myvm-lab
+    outputs:
+      output1: ${{ steps.step1.outputs.test }}
+    steps:
+      - name: step1
+        id: step1
+        run: echo test=${{ github.event.inputs.msg }} >> $GITHUB_OUTPUT
