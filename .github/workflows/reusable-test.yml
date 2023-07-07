@@ -1,4 +1,4 @@
-name: Call a reusable workflow and use its outputs
+name: Call a reusable
 
 on:
   workflow_dispatch:
@@ -11,4 +11,5 @@ jobs:
     uses: mevijays/test-actions/.github/workflows/workflow2.yml@main
     needs: job1
     with:
-       msg2: ${{ needs.job1.outputs.firstword }}
+       msg1: ${{ needs.job1.outputs.output1 }}
+       msg2: 'My system'
