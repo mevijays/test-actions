@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  job1:
+  ijob:
     uses: mevijays/test-actions/.github/workflows/workflow1.yml@main
 
   job2:
     uses: mevijays/test-actions/.github/workflows/workflow2.yml@main
-    needs: job1
+    needs: ijob
     with:
-       msg1: ${{ needs.job1.outputs.output1 }}
+       msg1: ${{ needs.ijob.outputs.output1 }}
        msg2: 'My system'
