@@ -16,12 +16,11 @@ jobs:
     steps:
       - name: java build
         shell: bash
-        env:
-          ART: developer
         run: |
           if [[ ${{ inputs.JAVA_VER }} -gt 11 ]]; then
           echo "Since you are using higher version of java than 11 so you can see me"
           fi
+          echo "ART=developer" >> "$GITHUB_ENV"
           echo " I am building  java ${{ inputs.JAVA_VER }} with  ${{ inputs.COMMAND }}"
           if [ "${{ inputs.DEPLOY_COMMAND }}" ]; then
           echo "ART=release" >> "$GITHUB_ENV"
