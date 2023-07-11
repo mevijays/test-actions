@@ -3,8 +3,8 @@ on:
   workflow_dispatch:
     inputs:
       JAVA_VER:
-        type: string
-        default: '11'
+        type: number
+        default: 11
       COMMAND:
         type: string
       DEPLOY_COMMAND:
@@ -17,7 +17,7 @@ jobs:
       - name: java build
         shell: bash
         run: |
-          if [[ ${{ inputs.JAVA_VER }} > '11' ]]; then
+          if [[ ${{ inputs.JAVA_VER }} -gt 11 ]]; then
           echo "Since you are using higher version of java than 11 so you can see me"
           fi
           echo " I am building  java ${{ inputs.JAVA_VER }} with  ${{ inputs.COMMAND }}"
