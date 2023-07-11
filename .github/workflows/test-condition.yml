@@ -18,10 +18,15 @@ jobs:
         if: inputs.JAVA_VER <= 11 
         shell: bash
         run: |
-          echo " I am building with java ${{ inputs.JAVA_VER }}"
-      - name: java deploy
-        if: inputs.JAVA_VER <= 11  &&  inputs.DEPLOY_COMMAND != ''
+          echo " I am building  java ${{ inputs.JAVA_VER }} with  ${{ inputs.COMMAND }}"
+          if [[ ${{ inputs.DEPLOY_COMMAND }} != ''  ]]; then
+          echo "Another line has been given to deploy as ${{ inputs.DEPLOY_COMMAND }}"
+          fi
+      - name: java build 17
+        if: inputs.JAVA_VER > 11
         shell: bash
-        run: |
-          echo "Iam deploying as well now for ${{ inputs.JAVA_VER <= 11 }} and with command ${{ inputs.DEPLOY_COMMAND }}"
-        
+        run: |          
+          echo " I am building  java ${{ inputs.JAVA_VER }} with  ${{ inputs.COMMAND }}"
+          if [[ ${{ inputs.DEPLOY_COMMAND }} != '' ]]; then
+          echo "Another line has been given to deploy as ${{ inputs.DEPLOY_COMMAND }}"
+          fi
