@@ -15,18 +15,13 @@ jobs:
     name: building java code
     steps:
       - name: java build
-        if: inputs.JAVA_VER <= 11 
         shell: bash
         run: |
+          if [[ ${{ inputs.JAVA_VER }} > '11' ]]; then
+          echo "Since you are using higher version of java than 11 so you can see me"
+          fi
           echo " I am building  java ${{ inputs.JAVA_VER }} with  ${{ inputs.COMMAND }}"
           if [ "${{ inputs.DEPLOY_COMMAND }}" ]; then
           echo "Another line has been given to deploy as ${{ inputs.DEPLOY_COMMAND }}"
           fi
-      - name: java build 17
-        if: inputs.JAVA_VER > 11
-        shell: bash
-        run: |          
-          echo " I am building  java ${{ inputs.JAVA_VER }} with  ${{ inputs.COMMAND }}"
-          if [ "${{ inputs.DEPLOY_COMMAND }}" ]; then
-          echo "Another line has been given to deploy as ${{ inputs.DEPLOY_COMMAND }}"
-          fi
+          
