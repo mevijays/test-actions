@@ -27,6 +27,6 @@ jobs:
         shell: bash
         run: |          
           echo " I am building  java ${{ inputs.JAVA_VER }} with  ${{ inputs.COMMAND }}"
-          if [ -z "${{ inputs.DEPLOY_COMMAND }}" ]; then
+          if [ "${{ inputs.DEPLOY_COMMAND }}" ]; then
           echo "Another line has been given to deploy as ${{ inputs.DEPLOY_COMMAND }}"
           fi
