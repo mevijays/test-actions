@@ -15,12 +15,12 @@ jobs:
     name: building java code
     steps:
       - name: java build
-        if: ${{ inputs.JAVA_VER <= 11 }} && ${{ inputs.DEPLOY_COMMAND == '' }}
+        if: inputs.JAVA_VER <= 11 
         shell: bash
         run: |
           echo " I am building with java ${{ inputs.JAVA_VER }}"
       - name: java deploy
-        if: ${{ inputs.JAVA_VER <= 11 }} && ${{ inputs.DEPLOY_COMMAND != '' }}
+        if: inputs.JAVA_VER <= 11  &&  inputs.DEPLOY_COMMAND != ''
         shell: bash
         run: |
           echo "Iam deploying as well now for ${{ inputs.JAVA_VER <= 11 }} and with command ${{ inputs.DEPLOY_COMMAND }}"
