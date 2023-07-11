@@ -1,0 +1,27 @@
+name: test condition
+on:
+  workflow_dispatch:
+    inputs:
+      JAVA_VAR:
+        type: string
+        default: '11'
+      COMMAND:
+        type: string
+      DEPLOY_COMMAND:
+        type: string
+jobs:
+  build_jar:
+    runs-on: mylab-vm
+    name: building java code
+    steps:
+      - name: java build
+        if: ${{ inputs.JAVA_VER <= 11 }} && ${{ inputs.DEPLOY_COMMAND == '' }}
+        shell: bash
+        run: |
+          echo " I am building with java ${{ inputs.JAVA_VER }}"
+      - name: java deploy
+        if: ${{ inputs.JAVA_VER <= 11 }} && ${{ inputs.DEPLOY_COMMAND != '' }}
+        shell: bash
+        run: |
+          echo "Iam deploying as well now for ${{ inputs.JAVA_VER <= 11 }} and with command ${{ inputs.DEPLOY_COMMAND }}"
+        
