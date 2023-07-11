@@ -2,7 +2,7 @@ name: test condition
 on:
   workflow_dispatch:
     inputs:
-      JAVA_VAR:
+      JAVA_VER:
         type: string
         default: '11'
       COMMAND:
