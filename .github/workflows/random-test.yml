@@ -4,6 +4,20 @@ permissions:
   id-token: 'write'
 on:
   workflow_dispatch:
+    inputs:
+      ENVIRONMENTS:
+        type: choice
+        options:
+          - dev
+          - uat
+          - prd
+          - dev-de
+          - uat-de
+          - prd-de
+          - sit-de
+          - aut-de
+          - sit-ua
+          
 jobs:
   example-test:
     runs-on: ubuntu-latest
@@ -15,4 +29,7 @@ jobs:
         echo '================================'
         echo ${GITHUB_SHA::6}
         echo '================================'
+    - name: Environment sa setup
+      run: |
+        if: 
   
