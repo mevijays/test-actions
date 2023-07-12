@@ -1,0 +1,16 @@
+name: Build and deploy
+permissions:
+  contents: 'read'
+  id-token: 'write'
+on:
+  workflow_dispatch:
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+    - name: testing echo
+      run: |
+        echo ${GITHUB_SHA::6}
+  
