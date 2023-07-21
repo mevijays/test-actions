@@ -1,0 +1,15 @@
+name: Update develop Branch
+on: workflow_dispatch
+jobs:
+  update-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the latest code
+        uses: actions/checkout@v2
+        with:
+          ref: 'develop'
+      - name: Update the feature branch
+        run: |
+          git fetch origin main
+          git pull origin main
+          git push origin develop
