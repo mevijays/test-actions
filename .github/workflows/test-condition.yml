@@ -11,7 +11,9 @@ on:
         type: string
 jobs:
   build_jar:
-    runs-on: mylab-vm
+    runs-on: dind
+    container:
+      image: node:14.16
     name: building java code
     steps:
       - name: java build
