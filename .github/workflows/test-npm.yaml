@@ -5,7 +5,7 @@ on:
 
 jobs:
   docker:
-    runs-on: [ mylab-vm, self-hosted, ubuntu-latest ]
+    runs-on: [self-hosted, ubuntu-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
