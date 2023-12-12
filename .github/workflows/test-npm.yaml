@@ -5,7 +5,7 @@ on:
 
 jobs:
   docker:
-    runs-on: [dind, ubuntu-latest]
+    runs-on: dind
     steps:
       - name: Checkout
         uses: actions/checkout@v4
