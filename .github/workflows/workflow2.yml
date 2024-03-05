@@ -15,7 +15,7 @@ on:
       environment:
         type: string
 env:
-  environment: ${{ inputs.environment }}
+  environment: ${{ inputs.LZ_ENVIRONMENT }}
 jobs:
   job2:
     runs-on: mylab-vm
