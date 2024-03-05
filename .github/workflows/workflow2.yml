@@ -8,10 +8,15 @@ on:
       msg2:
         type: string
         default: "vijay"
+      LZ_ENVIRONMENT:
+         description: 'LZ Environment'
+         type: string
+         default: "dev"
+
 jobs:
   job2:
     runs-on: mylab-vm
     steps:
       - name: step1
         id: step1
-        run: echo ${{ inputs.msg1 }}--${{ inputs.msg2 }}
+        run: echo ${{ inputs.msg1 }}--${{ inputs.msg2 }}--${{ inputs.LZ_ENVIRONMENT }}
