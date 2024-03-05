@@ -2,6 +2,16 @@ name: Call a reusable
 
 on:
   workflow_dispatch:
+    inputs:
+      ENVIRONMENT:
+         description: 'LZ Environment'
+         required: true
+         type: choice
+         default: "dev"
+         options:
+         - "dev"
+         - "production"
+         - "nonexist"
   repository_dispatch:
     types: [hitme]
 
@@ -15,3 +25,4 @@ jobs:
     with:
        msg1: ${{ needs.ijob.outputs.msgout }}
        msg2: 'My system'
+       LZ_ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
