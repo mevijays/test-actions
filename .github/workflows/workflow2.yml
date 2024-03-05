@@ -12,10 +12,13 @@ on:
          description: 'LZ Environment'
          type: string
          default: "dev"
+      environment:
+        type: string
 
 jobs:
   job2:
     runs-on: mylab-vm
+    environment: ${{ inputs.LZ_INVIRONMENT }}
     steps:
       - name: step1
         id: step1
