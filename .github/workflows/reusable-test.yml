@@ -3,7 +3,7 @@ name: Call a reusable
 on:
   workflow_dispatch:
     inputs:
-      ENVIRONMENT:
+      LZ_ENVIRONMENT:
          description: 'LZ Environment'
          required: true
          type: choice
@@ -16,14 +16,14 @@ on:
     types: [hitme]
 
 jobs:
-  ijob:
-    uses: mevijays/test-actions/.github/workflows/workflow1.yml@main
+ # ijob:
+ #   uses: mevijays/test-actions/.github/workflows/workflow1.yml@main
 
   job2:
     uses: mevijays/test-actions/.github/workflows/workflow2.yml@main
     needs: ijob
     with:
-       msg1: ${{ needs.ijob.outputs.msgout }}
+       #msg1: ${{ needs.ijob.outputs.msgout }}
        msg2: 'My system'
-       LZ_ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
-       environment: ${{ inputs.ENVIRONMENT }}
+       LZ_ENVIRONMENT: ${{ inputs.LZ_ENVIRONMENT }}
+       #environment: ${{ inputs.ENVIRONMENT }}
