@@ -1,6 +1,4 @@
 name: 'docker build'
-env:
-  environment: ${{ inputs.LZ_ENVIRONMENT }}
 on:
   workflow_call:
     inputs:
@@ -19,7 +17,7 @@ on:
 jobs:
   job2:
     runs-on: mylab-vm
-    environment: ${{ env.environment }}
+    environment: ${{ inputs.environment }}
     steps:
       - name: step1
         id: step1
