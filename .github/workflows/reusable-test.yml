@@ -21,7 +21,7 @@ jobs:
 
   job2:
     uses: mevijays/test-actions/.github/workflows/workflow2.yml@main
-    needs: ijob
+   # needs: ijob
     with:
        #msg1: ${{ needs.ijob.outputs.msgout }}
        msg2: 'My system'
