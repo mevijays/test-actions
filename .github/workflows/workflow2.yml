@@ -14,11 +14,12 @@ on:
          default: "dev"
       environment:
         type: string
-
+env:
+  environment: ${{ inputs.environment }}
 jobs:
   job2:
     runs-on: mylab-vm
-    environment: ${{ inputs.environment }}
+    environment: ${{ env.environment }}
     steps:
       - name: step1
         id: step1
