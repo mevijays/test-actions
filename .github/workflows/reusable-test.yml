@@ -26,3 +26,4 @@ jobs:
        msg1: ${{ needs.ijob.outputs.msgout }}
        msg2: 'My system'
        LZ_ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
+       environment: ${{ inputs.ENVIRONMENT }}
