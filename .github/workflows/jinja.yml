@@ -14,12 +14,13 @@ jobs:
 
       - name: Render Template
         run: |
+          name_var="{{ inputs.name }}"
           cat <<EOF > hello.json
           {
             "message": "Hello, world!"
           }
           EOF
-          sed -i "s/world/\${{ inputs.name }}/g" hello.json
+          sed -i "s/world/\$name_var/g" hello.json
 
       - name: Print JSON Output
         run: cat hello.json
