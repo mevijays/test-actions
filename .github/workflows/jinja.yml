@@ -20,8 +20,5 @@ jobs:
           EOF
           sed -i "s/world/{{ inputs.name }}/g" hello.json
 
-      - name: Print Jinja2 Template Content (Emulated)
-        run: cat hello.j2  # Assuming hello.j2 exists for reference (optional)
-
       - name: Print JSON Output
         run: cat hello.json
