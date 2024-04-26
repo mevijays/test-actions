@@ -2,11 +2,10 @@ name: Replace World with Input Parameter
 
 on:
   workflow_dispatch:
-
-inputs:
-  name:
-    description: 'Name to replace "world" with'
-    required: true
+    inputs:
+      name:
+      description: 'Name to replace "world" with'
+      required: true
 
 jobs:
   build:
