@@ -1,0 +1,31 @@
+name: Replace World with Input Parameter
+
+on:
+  workflow_dispatch:
+
+inputs:
+  name:
+    description: 'Name to replace "world" with'
+    required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Render Template
+        run: |
+          cat <<EOF > hello.json
+          {
+            "message": "Hello, world!"
+          }
+          EOF
+          sed -i "s/world/{{ inputs.name }}/g" hello.json
+
+      - name: Print Jinja2 Template Content (Emulated)
+        run: cat hello.j2  # Assuming hello.j2 exists for reference (optional)
+
+      - name: Print JSON Output
+        run: cat hello.json
