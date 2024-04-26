@@ -5,6 +5,7 @@ on:
       name:
         description: 'Name to replace "world" with'
         required: true
+        default: "vijay"
 jobs:
   build:
     runs-on: ubuntu-latest
