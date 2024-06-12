@@ -7,8 +7,14 @@ on:
        description: Ticket ID to validate
        default: "CHG1234567891"
 jobs:
+  selectrunner:
+    runs-on: ubuntu-latest
+    steps:
+      - name: select runner
+        run: echo "selected runner"
   validate:
     runs-on: ubuntu-latest
+    needs: [selectrunner]
     steps:
       - name: Validate ticket ID format
         run: |
