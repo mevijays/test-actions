@@ -24,5 +24,9 @@ jobs:
             exit 1
           fi
           echo "Ticket ID format is valid."
-      - name: "All pass"
-        run: echo "All step pass for validation"
+  Build:
+    runs-on: ubuntu-latest
+    needs: [validate]
+    steps:
+      - name: "build java code"
+        run: echo "All code builds"
