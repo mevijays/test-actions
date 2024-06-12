@@ -13,8 +13,8 @@ jobs:
       - name: Validate ticket ID format
         run: |
           ticket_id=${{ inputs.ticket_id }}
-          if [[ ! $ticket_id =~ ^(INC|CHG)[0-9]{12}$ ]]; then
-            echo "Invalid ticket ID format. Must start with INC or CHG, followed by 12 digits."
+          if [[ ! $ticket_id =~ ^(INC|CHG)[0-9]{10}$ ]]; then
+            echo "Invalid ticket ID format. Must start with INC or CHG, followed by 10 digits."
             exit 1
           fi
           echo "Ticket ID format is valid."
