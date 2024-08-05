@@ -1,0 +1,23 @@
+name: in-workflow-j2j-output-reuse
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate_name:
+    runs-on: ubuntu-latest
+    outputs:
+      random_name: ${{ steps.generate.outputs.name }}
+    steps:
+      - name: Generate Random Name
+        id: generate
+        run: echo name="$(openssl rand -hex 4)" >> GITHUB_OUTPUT
+
+  print_name:
+    runs-on: ubuntu-latest
+    needs: generate_name
+    steps:
+      - name: Print Random Name
+        run: echo "Random Name: ${{ needs.generate_name.outputs.random_name }}"
