@@ -9,11 +9,11 @@ jobs:
   generate_name:
     runs-on: ubuntu-latest
     outputs:
-      random_name: ${{ steps.generate.outputs.name }}
+      random_name: ${{ steps.generate.outputs.test }}
     steps:
       - name: Generate Random Name
         id: generate
-        run: echo "name=vijay" >> GITHUB_OUTPUT
+        run: echo "test=vijay" >> $GITHUB_OUTPUT
 
   print_name:
     runs-on: ubuntu-latest
