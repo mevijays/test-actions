@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Generate Random Name
         id: generate
-        run: echo "name=$(openssl rand -hex 4)" >> GITHUB_OUTPUT
+        run: echo "name='vijay'" >> GITHUB_OUTPUT
 
   print_name:
     runs-on: ubuntu-latest
