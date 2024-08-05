@@ -20,4 +20,4 @@ jobs:
     needs: generate_name
     steps:
       - name: Print Random Name
-        run: echo "Random Name: ${{ needs.generate_name.outputs.random_name }}"
+        run: echo "Random Name is -  ${{ needs.generate_name.outputs.random_name }}"
